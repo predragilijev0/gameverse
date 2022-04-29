@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Gameverse</title>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta name="author" content="Predrag Ilijev"/>
+  <meta content="Gameverse brings you the latest news on the PC games you love and more!" name="description"/>
+  <meta content="gameverse, latest, game, games, stadia" name="keywords"/>
+
+  <link href="assets/img/favicon.png" type="image/x-icon" rel="icon"/>
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet"/>
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet"/>
+  <!-- Main CSS File -->
+  <link href="assets/css/style.min.css" rel="stylesheet" type="text/css"/>
+  <!-- Lightbox gallery plugin CSS -->
+  <link href="assets/css/jquery.lightbox.min.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container-fluid">
+      <div class="logo float-left">
+        <a href="index.html"><img src="assets/img/logo.png" alt="logo" class="img-fluid float-left"></a>
+      </div>
+      <button type="button" class="nav-toggle"><i class="bx bx-menu"></i></button>
+      <nav class="nav-menu">
+        <ul id="meniLista">
+        </ul>
+      </nav>
+    </div>
+  </header><!-- End #header -->
+  
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <h1>Welcome to Gameverse.</h1>
+      <div class="container"><h2>Gameverse brings the latest video game news. We cover everything from PlayStation and Xbox blockbusters, to quirky Nintendo games, to the cool indie gems on PC and Android that you might otherwise miss.</h2></div>
+    </div>
+  </section><!-- #hero -->
+
+  <main id="main">
+
+    <!-- ======= Main News Section ======= -->
+    <section id="mainnews" class="mainnews">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-6 d-flex align-items-center p-0 pl-3 pr-3" id="slike">
+            <img src="assets/img/maingame.jpg" class="img-fluid prikazi" alt="maingame"/>
+            <img src="assets/img/cyber2.jpg" class="img-fluid" alt="maingame2"/>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <h3>Cyberpunk 2077 shines on next-gen consoles and Stadia, but older hardware struggles</h3>
+            <p class="font-italic">
+              Hands-on with the game on PS5 and Stadia
+            </p>
+            <p>
+              The first thing to note is there isn't actually a PS5 version of Cyberpunk 2077 — at least not yet, as full next-gen upgrades aren't expected until next year. Instead, I've been running the PS4 version on a PS5. Performance-wise, it's been great...
+            </p>
+            <p>
+              <span class="spoiler">After four hours of play, I haven't noticed any major frame rate drops, and the visuals are incredible. Unlike on Xbox Series X or Stadia, there aren't any performance options on PS5 — many modern games let players choose between having a higher resolution or frame rate — but it hasn't been a huge loss in my experience. Even during extremely busy moments, like a massive shootout or a walk through a tightly packed street market, the game chugged along just fine.</span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Main News Section -->
+
+    <!-- ======= Upcoming games Section ======= -->
+    <section id="agames" class="agames section-bg">
+      <div class="container">
+        <div class="section-title">
+          <h2>Most anticipated games for 2021</h2>
+        </div>
+        <div class="row" id="karticeovde">
+
+        </div>
+      </div>
+    </section><!-- End Upcoming games Section -->
+
+    <!-- ======= News Section ======= -->
+    <section id="news" class="news">
+      <div class="container">
+        <div class="section-title">
+          <h2>Latest stories</h2>
+        </div>
+        <div class="row" id="vestiovde">
+
+        </div>
+      </div>
+      <div class="container">
+        <div class="row d-flex justify-content-center loaded"><div id="loadMore" class="btn btn-outline-light mt-4">Show more</div></div>
+      </div>
+    </section><!-- End News Section -->
+    
+    <!--Giveaway Section-->
+    <section id="gw" class="gw section-bg">
+      <div class="section-title">
+        <h2>Giveaway</h2>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 d-flex align-items-center p-0 pl-3 pr-3">
+            <img src="assets/img/PS5-header.jpg" class="img-fluid" alt="gift"/>
+          </div>
+          <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0">
+            <h3 class="giveaway">Giveaway ends</h3>
+            <h5 class="font-italic">
+              Latest Giveaway Countdown
+            </h5>
+            <p>
+              This PS5 giveaway is a way of us repaying everyone for visiting the website and watching our eSports news and reacting to fun content that is being put out!
+            </p>
+            <div class="deadline" id="dlHere">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Giveaway Section end -->
+
+    <!-- ======= Reviews Section ======= -->
+    <section id="reviews" class="reviews">
+      <div class="container">
+        <div class="section-title">
+          <h2>Latest reviews</h2>
+        </div>
+        <div class="row" id="reviewsovde">
+          
+        </div>
+        <div class="pt-3 d-flex justify-content-center pag">
+          <a href="javascript:prevPage()" id="btn_prev"><p class="btn btn-outline-light mt-4">Prev</p></a>
+          <span id="page"></span>
+          <a href="javascript:nextPage()" id="btn_next"><p class="btn btn-outline-light mt-4">Next</p></a>
+      </div>
+      </div>
+    </section><!-- End Reviews Section -->
+     
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery" class="section-bg">
+      <div class="container">
+        <div class="section-title">
+          <h2>Latest wallpapers gallery</h2>
+        </div>
+        <div id="slikeovde" class="row">
+          
+        </div>
+      </div>
+    </section><!-- ======= End Gallery Section ======= -->
+
+    <!-- ======= Contact Us Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Contact Us</h2>
+        </div>
+
+        <div class="row justify-content-center">
+
+          <div class="col-lg-3 col-md-5 mb-5 mb-md-0 pt-5">
+            <div class="info">
+              <div class="address">
+                <i class="bx bx-map"></i>
+                <p>A108 Adam Street<br>New York, NY 535022</p>
+              </div>
+              <div class="email">
+                <i class="bx bx-envelope"></i>
+                <p>gameverse&#64;gmail&#46;com</p>
+              </div>
+              <div class="phone">
+                <i class="bx bx-phone-call"></i>
+                <p>+1 5589 55488 55</p>
+              </div>
+            </div>
+
+            <div class="social-links" id="slinksHere">
+              <a href="https://www.twitter.com/" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="https://www.facebook.com/" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="https://www.instagram.com/" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="https://www.linkedin.com/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+
+            <!-- Autor modal i dokum. -->
+            <div class="d-flex justify-content-center justify-content-md-start">
+              <button id="myBtn" class="btn btn-outline-light btn-sm mt-4 mr-2 ml-2 ml-md-0"><a>Author</a></button>
+              <div id="myModal" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <div class="row">
+                    <div class="col-lg-4 d-flex justify-content-center p-3">
+                      <img src="assets/img/mojaslika.jpeg" class="rounded" alt="profilepic">
+                    </div>
+                    <div class="col-lg-8 pt-3 p-3">
+                      <h3 class="text-light">Predrag Ilijev</h3>
+                      <p class="font-italic">
+                        196/19 - Web programming
+                      </p>
+                      <p>
+                        Hi, I am Predrag, a student at ICT College from Serbia. I've recently started studying Web programming and this is my new website called Gameverse that is inspired by some of the gaming sites I occasionally visit.
+                      </p>
+                      <p>You can contact me directly on any of these links below.</p>
+                      <div class="social-links" id="slinksHere2">
+                        <a href="https://www.twitter.com/" class="twitter"><i class="bx bxl-twitter"></i></a>
+                        <a href="https://www.facebook.com/" class="facebook"><i class="bx bxl-facebook"></i></a>
+                        <a href="https://www.instagram.com/" class="instagram"><i class="bx bxl-instagram"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="btn btn-outline-light btn-sm mt-4"><a rel="noopener noreferrer" target="_blank" href="dokumentacija.pdf">Documentation</a></div>
+            </div>
+          </div>
+
+          <!-- Forma -->
+          <div class="col-lg-5 col-md-7">
+            <form id="formOne" name= "input" action="#" method="get">
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Contact Us Section -->
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        <span class="gray">&copy; Copyright 2022 - </span><i>Predrag Ilijev 196/19</i>
+      </div>
+    </div>
+  </footer><!-- End #footer -->
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.min.js"></script>
+  <!-- Lightbox Plugin JQuery File -->
+  <script src="assets/js/jquery.lightbox.min.js"></script>
+
+</body>
+</html>
