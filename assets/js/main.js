@@ -207,7 +207,7 @@ var recTekst = ["Final Fantasy 7 Remake has arrived on PC months after its PlayS
 "You can tell a lot about a game's soul by what it deems a 'perk'. Fallout 3, for example, thinks being better at murdering women is one. In Modern Warfare it's dropping a grenade after death like a smug ghost. In Psychonauts 2, Double Fine will sell you a 'beastmastery' pin badge modifier that allows Raz's psychic fist..."];
 var recNaslov = ["Final Fantasy 7 Remake PC review",
 "Halo Infinite review",
-"Forza Horizon 5 review",
+"Forza Horizon 4 review",
 "Riders Republic review",
 "Football Manager 2022 review",
 "Age of Empires 4 review",
@@ -287,120 +287,125 @@ function numPages()
 }
 
 // Forma
-window.onload = function() {
+document.addEventListener("DOMContentLoaded", function() {
   var nameField = document.querySelector("#tbImePrezime");
   var emailField = document.querySelector("#tbEmail");
   var messageField = document.querySelector("#tbMessage");
   var subjectField = document.querySelector("#tbTema");
-  
+
   var namePattern = /^[A-Z][a-z]{2,15}(\s[A-Z][a-z]{2,15})+$/;
   var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   var messagePattern = /^[a-zA-Z0-9\s\W]{20,200}$/;
   var subjectPattern = /^[a-zA-Z0-9\s\W]{2,50}$/;
 
   function formExample(textNum) {
-    var textArray = ["Example: <i>Tom Smith, Edward Hemingway...</i>","Example: <i>tom@gmail.com, tom.smith@hotmail.com, etc...</i>","Example: <i>Gaming news, Suggestion for the next event, Esports etc...</i>","Enter at least 20 characters. <i>Max: 200.</i>"];
-    // var textArray = ["test1","test2","test3","test4"];
+    var textArray = [
+      "Example: <i>Tom Smith, Edward Hemingway...</i>",
+      "Example: <i>tom@gmail.com, tom.smith@hotmail.com, etc...</i>",
+      "Example: <i>Gaming news, Suggestion for the next event, Esports etc...</i>",
+      "Enter at least 20 characters. <i>Max: 200.</i>"
+    ];
     var divNameArray = ["#gr1", "#gr2", "#gr0", "#gr3"];
-    // console.log(textNum);
-    // console.log(divNameArray[textNum]);
-    document.querySelector(divNameArray[textNum]).innerHTML = "" + textArray[textNum];
+    document.querySelector(divNameArray[textNum]).innerHTML =
+      "" + textArray[textNum];
   }
 
-  nameField.addEventListener("blur", function(){
-    proveraRegEx(namePattern, "#tbImePrezime");
+  nameField.addEventListener("blur", function() {
+    proveraRegEx(namePattern, "#tbImePrezime", nameField);
   });
 
-  emailField.addEventListener("blur", function(){
-    proveraRegEx(emailPattern, "#tbEmail");
+  emailField.addEventListener("blur", function() {
+    proveraRegEx(emailPattern, "#tbEmail", emailField);
   });
 
-  messageField.addEventListener("blur", function(){
-    proveraRegEx(messagePattern, "#tbMessage");
+  messageField.addEventListener("blur", function() {
+    proveraRegEx(messagePattern, "#tbMessage", messageField);
   });
 
-  subjectField.addEventListener("blur", function(){
-    proveraRegEx(subjectPattern, "#tbTema");
+  subjectField.addEventListener("blur", function() {
+    proveraRegEx(subjectPattern, "#tbTema", subjectField);
   });
 
-  function proveraRegEx(regEx, element){
-    if((!$(element).val().match(regEx))){
-      if ((element) == "#tbImePrezime") {
-        nameField.classList.add("wrong");
+  function proveraRegEx(regEx, element, field) {
+    console.log(field.value);
+    var fieldValue = field ? field.value : field.val();
+    if (!fieldValue.match(regEx)) {
+      field.classList.add("wrong");
+      if (element == "#tbImePrezime") {
         formExample(0);
       }
-      if ((element) == "#tbEmail") {
-        emailField.classList.add("wrong");
+      if (element == "#tbEmail") {
         formExample(1);
       }
-      if ((element) == "#tbTema") {
-        subjectField.classList.add("wrong");
+      if (element == "#tbTema") {
         formExample(2);
       }
-      if ((element) == "#tbMessage") {
-        messageField.classList.add("wrong");
+      if (element == "#tbMessage") {
         formExample(3);
       }
       return false;
-    }
-    else{
-        $(element).removeClass("wrong");
-        // $(element).addClass("correct");
-        return true;
+    } else {
+      field.classList.remove("wrong");
+      return true;
     }
   }
 
   //Forma submit
   document.querySelector("#buttonSubmit").addEventListener("click", provera);
-  function provera(){
-    
-
+  function provera() {
     var mistakes = 0;
-    if(!proveraRegEx(namePattern, nameField)){
+    if (!proveraRegEx(namePattern, "#tbImePrezime", nameField)) {
       mistakes++;
       nameField.classList.add("wrong");
       formExample(0);
     }
 
-    if(!proveraRegEx(emailPattern, emailField)){
+    if (!proveraRegEx(emailPattern, "#tbEmail", emailField)) {
       mistakes++;
       emailField.classList.add("wrong");
       formExample(1);
     }
-    if(!proveraRegEx(messagePattern, messageField)){
+    if (!proveraRegEx(messagePattern, "#tbMessage", messageField)) {
       mistakes++;
       messageField.classList.add("wrong");
       formExample(2);
     }
-    if(!proveraRegEx(subjectPattern, subjectField)){
+    if (!proveraRegEx(subjectPattern, "#tbTema", subjectField)) {
       mistakes++;
       subjectField.classList.add("wrong");
       formExample(3);
     }
-    if(mistakes == 0){
-        $("#confirmation").fadeIn(1000).removeClass('d-none');
-        $("#tbImePrezime").addClass('success').val("");
-        $("#tbEmail").addClass('success').val("");
-        $("#tbMessage").addClass('success').val("");
-        $("#tbTema").addClass('success').val("");
-        $("#gr0").html("");
-        $("#gr1").html("");
-        $("#gr2").html("");
-        $("#gr3").html("");
-        
-        window.setTimeout(sakrij,5000);
-        function sakrij() {
-          $("#confirmation").fadeOut(1000);
-          $("#tbImePrezime").removeClass('success');
-          $("#tbEmail").removeClass('success');
-          $("#tbMessage").removeClass('success');
-          $("#tbTema").removeClass('success');
-        }
+    if (mistakes === 0) {
+      document.querySelector("#confirmation").style.cssText = "display: block !important;";
+      nameField.classList.add('success');
+      emailField.classList.add('success');
+      messageField.classList.add('success');
+      subjectField.classList.add('success');
+
+      nameField.value = "";
+      emailField.value = "";
+      messageField.value = "";
+      subjectField.value = "";
+
+      document.querySelector("#gr0").innerHTML = "";
+      document.querySelector("#gr1").innerHTML = "";
+      document.querySelector("#gr2").innerHTML = "";
+      document.querySelector("#gr3").innerHTML = "";
+
+      function sakrij() {
+        document.querySelector("#confirmation").style.display = "none";
+        nameField.classList.remove('success');
+        emailField.classList.remove('success');
+        messageField.classList.remove('success');
+        subjectField.classList.remove('success');
+      }
+
+      window.setTimeout(sakrij, 5000);
     }
   }
 
   changePage(1);
-};
+});
 
 //Giveaway countdown timer
 const months = [
@@ -563,17 +568,3 @@ $(function() {
     // minSize: 768
   }); 
 });
-
-
-
-
-// $('#introImage1').hover( function(){
-//   $(this).attr('src', 'assets/images/img_5.jpg')},
-//   function(){
-//     $(this).attr('src', 'assets/images/img_6.jpg')
-//   }
-// )
-
-// setTimeout( function() {
-//  //something
-// }, 5000);
